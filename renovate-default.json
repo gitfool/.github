@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    ":disableRateLimiting",
+    ":rebaseStalePrs",
+    ":semanticCommitsDisabled"
+  ],
+  "commitMessageAction": "Bump",
+  "labels": [ "dependencies" ],
+  "packageRules": [
+    {
+      "description": "Group non-major update types",
+      "matchUpdateTypes": [ "minor", "patch", "digest", "lockFileMaintenance" ],
+      "groupName": "dependencies",
+      "groupSlug": "minor",
+      "automerge": true
+    }
+  ],
+  "regexManagers": [
+    {
+      "description": "Install dotnet version in github workflows",
+      "fileMatch": [ "^\\.github/workflows/.+?\\.yaml$" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s" ],
+      "depTypeTemplate": "action"
+    },
+    {
+      "description": "Install dotnet version in azure pipelines",
+      "fileMatch": [ "^\\.azure-pipelines\\.yaml$" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?\\s+version: (?<currentValue>.+?)\\s" ],
+      "depTypeTemplate": "task"
+    },
+    {
+      "description": "Install dotnet version in gitlab ci",
+      "fileMatch": [ "^\\.gitlab-ci\\.yml$" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?\\s+.+?[Vv]ersion (?<currentValue>.+?)[\"\\s]" ],
+      "depTypeTemplate": "script"
+    },
+    {
+      "description": "Install version in docker files",
+      "fileMatch": [ "(^|/)Dockerfile[^/]*$" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: lookupName=(?<lookupName>.+?))?(?: depType=(?<depType>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?: versioning=(?<versioning>.+?))?\\sRUN version=(?<currentValue>.+?)\\s" ],
+      "depTypeTemplate": "{{#if depType}}{{depType}}{{else}}run{{/if}}",
+      "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.+)${{/if}}"
+    }
+  ],
+  "schedule": [ "at any time" ]
+}
