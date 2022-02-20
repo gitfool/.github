@@ -128,6 +128,67 @@ labels:
   #   # A short description of the label. Must be 100 characters or fewer.
   #   description: An issue with the system 🐛.
 
+  # github; https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels#about-default-labels
+  - name: bug
+    color: "#d73a4a"
+    description: Something isn't working
+  - name: documentation
+    color: "#0075ca"
+    description: Improvements or additions to documentation
+  - name: duplicate
+    color: "#cfd3d7"
+    description: This issue or pull request already exists
+  - name: enhancement
+    color: "#a2eeef"
+    description: New feature or request
+  - name: good first issue
+    color: "#7057ff"
+    description: Good for newcomers
+  - name: help wanted
+    color: "#008672"
+    description: Extra attention is needed
+  - name: invalid
+    color: "#e4e669"
+    description: This doesn't seem right
+  - name: question
+    color: "#d876e3"
+    description: Further information is requested
+  - name: wontfix
+    color: "#ffffff"
+    description: This will not be worked on
+
+  # auto release; https://intuit.github.io/auto/docs/configuration/autorc#labels
+  - name: major
+    color: "#d20b09"
+    description: Pull requests that auto release should increment major version when merged
+  - name: minor
+    color: "#f5b40b"
+    description: Pull requests that auto release should increment minor version when merged
+  - name: patch
+    color: "#9b055a"
+    description: Pull requests that auto release should increment patch version when merged
+  - name: skip-release
+    color: "#bf5416"
+    description: Pull requests that auto release should skip release when merged
+  - name: release
+    color: "#bf5416"
+    description: Pull requests that auto release should create release when merged
+  - name: internal
+    color: "#696969"
+    description: Changes that only affect internal api
+  - name: documentation
+    color: "#0075ca"
+    description: Changes that only affect documentation
+  - name: tests
+    color: "#696969"
+    description: Changes that only affect tests
+  - name: dependencies
+    color: "#20409a"
+    description: Changes that only affect dependencies
+  - name: performance
+    color: "#696969"
+    description: Changes that only affect performance
+
 # https://docs.github.com/en/rest/reference/issues#create-a-milestone
 milestones:
   # - # Required. The title of the milestone.
