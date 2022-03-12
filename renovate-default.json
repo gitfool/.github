@@ -18,6 +18,10 @@
       "automerge": true
     }
   ],
+  "prBodyColumns": [ "Package", "Manager", "Type", "Update", "Change", "Pending" ],
+  "prBodyDefinitions": {
+    "Manager": "{{{manager}}}"
+  },
   "regexManagers": [
     {
       "description": "Install dotnet version in github workflows",
