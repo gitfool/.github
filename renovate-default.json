@@ -14,8 +14,7 @@
       "description": "Group non-major update types",
       "matchUpdateTypes": [ "minor", "patch", "digest", "lockFileMaintenance" ],
       "groupName": "dependencies",
-      "groupSlug": "minor",
-      "automerge": true
+      "groupSlug": "minor"
     }
   ],
   "prBodyColumns": [ "Package", "Manager", "Type", "Update", "Change", "Pending" ],
@@ -24,25 +23,25 @@
   },
   "regexManagers": [
     {
-      "description": "Install dotnet version in github workflows",
+      "description": "Match dotnet version in github workflows",
       "fileMatch": [ "^\\.github/workflows/.+?\\.yaml$" ],
       "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+dotnet-version: (?<currentValue>.+?)\\s" ],
       "depTypeTemplate": "action"
     },
     {
-      "description": "Install dotnet version in azure pipelines",
+      "description": "Match dotnet version in azure pipelines",
       "fileMatch": [ "^\\.azure-pipelines\\.yaml$" ],
       "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+version: (?<currentValue>.+?)\\s" ],
       "depTypeTemplate": "task"
     },
     {
-      "description": "Install dotnet version in gitlab ci",
+      "description": "Match dotnet version in gitlab ci",
       "fileMatch": [ "^\\.gitlab-ci\\.yml$" ],
       "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?\\s+.+?[Vv]ersion (?<currentValue>.+?)[\"\\s]" ],
       "depTypeTemplate": "script"
     },
     {
-      "description": "Install version in docker files",
+      "description": "Match version in docker files",
       "fileMatch": [ "(^|/)Dockerfile[^/]*$" ],
       "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?(?: depType=(?<depType>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?: versioning=(?<versioning>.+?))?\\sRUN version=(?<currentValue>.+?)\\s" ],
       "depTypeTemplate": "{{#if depType}}{{depType}}{{else}}run{{/if}}",
