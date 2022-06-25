@@ -43,7 +43,7 @@
     {
       "description": "Match version in docker files",
       "fileMatch": [ "(^|/)Dockerfile[^/]*$" ],
-      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?(?: depType=(?<depType>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?: versioning=(?<versioning>.+?))?\\sRUN version=(?<currentValue>.+?)\\s" ],
+      "matchStrings": [ "# renovate: datasource=(?<datasource>.+?) depName=(?<depName>.+?)(?: packageName=(?<packageName>.+?))?(?: depType=(?<depType>.+?))?(?: extractVersion=(?<extractVersion>.+?))?(?: versioning=(?<versioning>.+?))?\\s.+? version=(?<currentValue>.+?)\\s" ],
       "depTypeTemplate": "{{#if depType}}{{depType}}{{else}}run{{/if}}",
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.+)${{/if}}"
     }
