@@ -7,6 +7,10 @@
     ":rebaseStalePrs",
     ":semanticCommitsDisabled"
   ],
+  "azure-pipelines": {
+    "description": "Disable azure pipelines manager",
+    "enabled": false
+  },
   "commitMessageAction": "Bump",
   "labels": [ "dependencies" ],
   "packageRules": [
