@@ -15,11 +15,6 @@
   "labels": [ "dependencies" ],
   "packageRules": [
     {
-      "description": "Disable repology datasource",
-      "matchDatasources": [ "repology" ],
-      "enabled": false
-    },
-    {
       "description": "Group non-major update types",
       "matchUpdateTypes": [ "minor", "patch", "digest", "lockFileMaintenance" ],
       "groupName": "dependencies",
